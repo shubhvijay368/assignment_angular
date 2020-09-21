@@ -1,0 +1,45 @@
+@import "./_color.scss";
+@import "./global-cursor.scss";
+@import "./global-margin-padding.scss";
+@import "./global-typography.scss";
+
+*{
+  outline: none !important;
+  resize: none !important;
+}
+
+.single-line-ellipsis {
+  word-break: break-all;
+    display: -webkit-box !important;
+    width: 100% !important;
+    -webkit-line-clamp: 1 !important;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis !important;
+}
+.single-line-ellipsis-without-width {
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important; 
+}
+.two-line-ellipsis {
+  display: block !important;
+  width: 100% !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.image-fit{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.image-round{
+  border-radius: 50% !important;
+}
+.box-shadow{
+  box-shadow: 0px -1px 3px #8a8888 !important;
+}

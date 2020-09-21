@@ -1,7 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'launch-program',
+    pathMatch: 'full'
+  },
+  {
+    path: 'launch-program',
+    loadChildren: () =>
+      import('./@view/launch-program/launch-program.module').then((m) => m.LaunchProgramModule),
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
