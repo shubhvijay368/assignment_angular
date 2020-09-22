@@ -9,37 +9,61 @@
             <div class="bg-white ">
                 <div class="p-3 fw-600">Filters</div>
                 <div class="pb-3">
-                    <div class="d-flex align-items-center justify-content-center pt-3"> <span class="font-14 filter-heading"> Launch Year</span> </div>
+                    <div class="d-flex align-items-center justify-content-center pt-3"> <span
+                            class="font-14 filter-heading"> Launch Year</span> </div>
                     <div class="d-flex align-items-center justify-content-between p-3 flex-wrap">
                         <div *ngFor="let year of years; let i = index;" class="mx-2 py-2">
-                            <span class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400" [class.selected]="year.isSelected" (click)="changeFilterYear(i)">{{year.value}}</span>
+                            <span class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400"
+                                [class.selected]="year.isSelected" (click)="changeFilterYear(i)">{{year.value}}</span>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-center pt-3"> <span class="font-14 filter-heading"> Successful Launch </span> </div>
+                    <div class="d-flex align-items-center justify-content-center pt-3"> <span
+                            class="font-14 filter-heading"> Successful Launch </span> </div>
                     <div class="d-flex align-items-center justify-content-between p-3 flex-wrap">
                         <div class="mx-2 py-2">
-                            <span class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400"  >True</span>
+                            <span
+                                class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400">True</span>
                         </div>
                         <div class="mx-2 py-2">
-                            <span class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400"  >False</span>
+                            <span
+                                class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400">False</span>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center justify-content-center pt-3"> <span class="font-14 filter-heading"> Successful Landing </span> </div>
+                    <div class="d-flex align-items-center justify-content-center pt-3"> <span
+                            class="font-14 filter-heading"> Successful Landing </span> </div>
                     <div class="d-flex align-items-center justify-content-between p-3 flex-wrap">
                         <div class="mx-2 py-2">
-                            <span class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400"  >True</span>
+                            <span
+                                class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400">True</span>
                         </div>
                         <div class="mx-2 py-2">
-                            <span class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400"  >False</span>
+                            <span
+                                class="badge badge-success cursor-pointer px-2 py-1 filter-badge font-12 fw-400">False</span>
                         </div>
                     </div>
                 </div>
             </div>
-          
+
         </div>
-        <div class="col-12 col-lg-10 p-0 d-flex flex-wrap" >
-            <div *ngFor="let year of launchData; let i = index;" class="col-12 col-md-6 col-lg-4 p-2">
-                <div style="height: 300px; background:red;" class=" bg-white"></div>
+        <div class="col-12 col-lg-10 p-0 d-flex flex-wrap">
+            <div *ngFor="let data of launchData; let i = index;" class="col-12 col-md-6 col-lg-3 p-2">
+                <div class=" bg-white">
+                    <div style="height:200px" class="p-3"><img src="{{data?.links?.mission_patch}}" class="image-fit">
+                    </div>
+                    <div class="px-3 pb-3">
+                        <div><span class="font-14 fw-600 mission-name">Falcon Sat #1</span></div>
+                        <div><span class="font-14 fw-600">Mission Ids:</span>
+                            <ul  class="m-0">
+                                <li *ngFor="let id of data?.mission_id;"><span class="font-14 text-light">{{id}}</span></li>
+                            </ul>
+                        </div>
+                        <div><span class="font-14 fw-600">Launch Year:</span></div>
+                        <div><span class="font-14 fw-600">Successful launch: </span><span class="font-14 text-light">False</span>
+                        </div>
+                        <div><span class="font-14 fw-600">Successful Landing: </span><span class="font-14 text-light">False</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

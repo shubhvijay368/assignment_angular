@@ -39,7 +39,8 @@ body{
 .image-fit{
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
+  background-color: #cccfd9;
 }
 .image-round{
   border-radius: 50% !important;
