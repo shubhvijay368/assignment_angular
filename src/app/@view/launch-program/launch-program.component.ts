@@ -34,7 +34,7 @@ export class LaunchProgramComponent implements OnInit {
   constructor(private cs : CommonService) { }
 
   ngOnInit(): void {
-    debugger
+    
     this.getLaunchPrograms();
   }
 
