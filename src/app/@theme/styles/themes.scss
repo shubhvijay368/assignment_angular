@@ -11,7 +11,9 @@
 body{
   background-color: #cccccc !important;
 }
-
+.max-1440{
+  max-width: 1440px !important;
+}
 .single-line-ellipsis {
   word-break: break-all;
     display: -webkit-box !important;
