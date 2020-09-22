@@ -29,7 +29,8 @@ export class LaunchProgramComponent implements OnInit {
 
   launch_success: any;
   land_success: any;
-  launchData: any;
+  launchData: any = [];
+  isshowResult: boolean;
 
   constructor(private cs : CommonService) { }
 
@@ -48,6 +49,7 @@ export class LaunchProgramComponent implements OnInit {
     this.cs.httpRequest(API_TYPE.GET, 'launches', req).subscribe(
       (res: any) => {
         console.log(res);
+        this.isshowResult = true;
 
         this.launchData = res;
         
