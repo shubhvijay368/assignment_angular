@@ -12,7 +12,7 @@
     "serve:ssr": "node dist/publicis/server/main.js",
     "build:ssr": "ng build --prod && ng run publicis:server:production",
     "prerender": "ng run publicis:prerender",
-    "heroku-postbuild":"ng build --prod && ng run publicis:server:production && node dist/publicis/server/main.js"
+    "heroku-postbuild":"ng build --prod && ng run publicis:server:production && node server.js"
   },
   "engines": {
     "node": "12.18.4",
