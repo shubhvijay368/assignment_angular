@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CommonService } from 'src/app/@core/@services/common.service';
 import { API_TYPE } from 'src/app/@core/@utills/api-type';
 
@@ -27,16 +28,28 @@ export class LaunchProgramComponent implements OnInit {
     {value:'2020', isSelected: false}
   ];
 
-  launch_success: any;
-  land_success: any;
+  launch_success: any = [
+    { value:"true", isSelected: false},
+    { value:"false", isSelected: false}
+  ];
+  land_success: any = [
+    { value:"true", isSelected: false},
+    { value:"false", isSelected: false}
+  ];;
   launchData: any = [];
   isshowResult: boolean;
+  subscriptions: Subscription[] = [];
 
   constructor(private cs : CommonService) { }
 
   ngOnInit(): void {
-    
     this.getLaunchPrograms();
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((element) => {
+      element.unsubscribe();
+    });
   }
 
   getLaunchPrograms(){
@@ -45,8 +58,10 @@ export class LaunchProgramComponent implements OnInit {
     // if(this.launch_success) , land_success: this.land_success
 
     req.launch_year = this.years.filter(item=>item.isSelected).map(item=>item.value)
+    req.launch_success = this.launch_success.filter(item=>item.isSelected).map(item=>item.value)
+    req.land_success = this.land_success.filter(item=>item.isSelected).map(item=>item.value)
 
-    this.cs.httpRequest(API_TYPE.GET, 'launches', req).subscribe(
+    let requestSub = this.cs.httpRequest(API_TYPE.GET, 'launches', req).subscribe(
       (res: any) => {
         console.log(res);
         this.isshowResult = true;
@@ -59,16 +74,21 @@ export class LaunchProgramComponent implements OnInit {
         
       }
     );
+    this.subscriptions.push(requestSub);
   }
 
-  changeFilterYear(index){
-    for(let i=0;i<this.years.length;i++){
+  changeFilterYear(index, array){
+    for(let i=0;i < array.length;i++){
       if(i == index)
-        this.years[i].isSelected = !this.years[i].isSelected;
+        array[i].isSelected = !array[i].isSelected;
       else
-      this.years[i].isSelected = false;
+      array[i].isSelected = false;
     }
     this.getLaunchPrograms();
+  }
+
+  trackByFn(index, item) {
+    return index; // or item.id
   }
 
 }

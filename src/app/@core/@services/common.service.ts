@@ -8,7 +8,9 @@ import { BASE_URL } from 'src/app/@core/@utills/constant';
 import { API_TYPE } from '../@utills/api-type';
 
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class CommonService {
 
   constructor(
