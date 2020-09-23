@@ -5,7 +5,7 @@ This project was generated with [Angular CLI] version 10.1.2.
 ## Install equired dependancies
 Run `npm i` for downloading all the dependencies to run the project.
 
-## Development server
+## Running Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -21,7 +21,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ### SSR Build
 Run `npm run build:ssr` for production build with server side rendering. The build artifacts will be stored in the `dist/` directory.
 
-### SSR Server
+### Running SSR Server
 Run `npm run serve:ssr` to render project on server side. Navigate to `http://localhost:4000/`. The app will automatically reload if you change any of the source files.
 
 
@@ -34,4 +34,4 @@ Run `npm run serve:ssr` to render project on server side. Navigate to `http://lo
 - On filter selection for launch year, launch success, land success, launch program data will be filtered accordingly.
 
 ## LightHouse score
-
+Press F12, go to lighthouse tab and generate report
